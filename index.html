@@ -463,6 +463,63 @@
     font-weight: 600;
     color: var(--text);
   }
+
+  /* LANGUAGE SELECTION */
+  .language-hero {
+    background: var(--text);
+    border-radius: var(--radius);
+    padding: 40px 28px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .language-hero::before {
+    content: '⚽';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px;
+    opacity: 0.07;
+  }
+  .language-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .language-hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .language-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  .lang-btn {
+    padding: 18px 24px;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: var(--green);
+    color: #fff;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+  }
 </style>
 </head>
 <body>
@@ -471,17 +528,29 @@
 <div class="topbar">
   <div class="topbar-brand">Smart<span>Style</span></div>
   <div class="topbar-right">
-    <div class="progress-pill" id="progress-pill">Step 1 of 8</div>
+    <div class="progress-pill" id="progress-pill">Step 1 of 9</div>
   </div>
 </div>
 <div class="progress-track">
-  <div class="progress-fill" id="pgbar" style="width:12.5%"></div>
+  <div class="progress-fill" id="pgbar" style="width:11.1%"></div>
 </div>
 
 <div class="main">
 
+  <!-- STEP 0: LANGUAGE SELECTION -->
+  <div class="step active" id="step-0">
+    <div class="language-hero">
+      <h1>Score a Goal<br/>with SmartStyle</h1>
+      <p>Choose your preferred language to begin your training.</p>
+      <div class="language-buttons">
+        <button class="lang-btn" onclick="selectLanguage('en')">English</button>
+        <button class="lang-btn" onclick="selectLanguage('es')">Español</button>
+      </div>
+    </div>
+  </div>
+
   <!-- STEP 1: WELCOME -->
-  <div class="step active" id="step-1">
+  <div class="step" id="step-1">
     <div class="welcome-hero">
       <div class="eyebrow">Stylist Training · World Cup 2026</div>
       <h1>Score a Goal<br/>with SmartStyle</h1>
@@ -494,7 +563,7 @@
     </div>
     <div class="card">
       <div class="card-eyebrow">Why this campaign</div>
-      <div class="card-body">Several World Cup matches will be played in Miami Gardens, bringing major foot traffic through Walmart locations. This is a major opportunity to attract new clients, increase sales, and grow our contact database for long-term outreach.</div>
+      <div class="card-body">Several World Cup matches will be played in Miami Gardens, bringing major foot traffic through Walmart locations. This is a major opportunity to attract new clients, [...]
     </div>
     <div class="highlight">Your participation is critical. The success of this campaign depends entirely on how well stylists communicate and execute it on the floor every day.</div>
   </div>
@@ -538,17 +607,17 @@
       <div class="prize-card">
         <div class="prize-tier">Tier 1</div>
         <div class="prize-name">New Walmart clients only</div>
-        <div class="prize-detail"><span class="tag tag-green">10 winners</span><br/>6 months of free cut + shampoo service ($25.97/month). Up to 1 cut per calendar month, 6 total. Prize expires after 6 months. Transferable.</div>
+        <div class="prize-detail"><span class="tag tag-green">10 winners</span><br/>6 months of free cut + shampoo service ($25.97/month). Up to 1 cut per calendar month, 6 total. Prize expires a[...]
       </div>
       <div class="prize-card">
         <div class="prize-tier">Tier 2</div>
         <div class="prize-name">Existing clients only</div>
-        <div class="prize-detail"><span class="tag tag-blue">3 winners</span><br/>One free service of their choice up to $200. Valid for one service only, subject to scheduling. Non-transferable.</div>
+        <div class="prize-detail"><span class="tag tag-blue">3 winners</span><br/>One free service of their choice up to $200. Valid for one service only, subject to scheduling. Non-transferable.[...]
       </div>
       <div class="prize-card">
         <div class="prize-tier">Tier 3 — Weekly</div>
         <div class="prize-name">All clients eligible</div>
-        <div class="prize-detail"><span class="tag tag-amber">10 weekly winners</span><br/>Product kits and merchandise. Open to both new and existing clients. Product selection may vary. Non-transferable.</div>
+        <div class="prize-detail"><span class="tag tag-amber">10 weekly winners</span><br/>Product kits and merchandise. Open to both new and existing clients. Product selection may vary. Non-tra[...]
       </div>
     </div>
     <div class="highlight">SmartStyle absorbs all prize costs — this means no change to stylist service amounts or pay for any prize service rendered.</div>
@@ -572,7 +641,7 @@
     <div class="card">
       <div class="card-eyebrow">Store incentive</div>
       <div class="card-heading">Scissors tool kit for every stylist</div>
-      <div class="card-body">The store with the highest number of verified client registrations during the full campaign period wins a professional scissors tool kit for each stylist on the team.</div>
+      <div class="card-body">The store with the highest number of verified client registrations during the full campaign period wins a professional scissors tool kit for each stylist on the team.[...]
     </div>
     <div class="card">
       <div class="card-eyebrow">Individual incentive</div>
@@ -594,7 +663,7 @@
     <div class="module-intro">Keep every interaction friendly, energetic, and brief. Use these scripts as your guide for every situation you will encounter on the floor.</div>
     <div class="script-box">
       <div class="script-situation">Opening — invite any nearby customer</div>
-      <div class="script-line">"Hi! We're currently running our World Cup promotion called 'Score a Goal with SmartStyle.' If you scan this QR code and fill out a quick form, you'll automatically be entered into our raffle for free haircuts, free services, and product kits."</div>
+      <div class="script-line">"Hi! We're currently running our World Cup promotion called 'Score a Goal with SmartStyle.' If you scan this QR code and fill out a quick form, you'll automatically[...]
     </div>
     <div class="script-box">
       <div class="script-situation">If the customer hesitates</div>
@@ -602,7 +671,7 @@
     </div>
     <div class="script-box">
       <div class="script-situation">If the customer asks about prizes</div>
-      <div class="script-line">"We'll be selecting multiple winners weekly and at the end of the promotion. Some prizes are specifically for new customers, some are for existing customers, and others are open to everyone."</div>
+      <div class="script-line">"We'll be selecting multiple winners weekly and at the end of the promotion. Some prizes are specifically for new customers, some are for existing customers, and ot[...]
     </div>
     <div class="script-box">
       <div class="script-situation">Upsell transition — after they sign up</div>
@@ -745,17 +814,24 @@
 </div><!-- /main -->
 
 <script>
-  var current = 1;
+  var current = 0;
   var answers = {};
   var correctKeys = {1:'b',2:'b',3:'b',4:'b',5:'b',6:'b',7:'b',8:'b'};
+
+  function selectLanguage(lang) {
+    // Language selection logic - currently just proceeds to step 1
+    // In a full implementation, this would change all content to the selected language
+    console.log('Language selected:', lang);
+    goStep(1);
+  }
 
   function goStep(n) {
     document.getElementById('step-' + current).classList.remove('active');
     current = n;
     document.getElementById('step-' + current).classList.add('active');
-    var pct = (current / 8) * 100;
+    var pct = ((current + 1) / 9) * 100;
     document.getElementById('pgbar').style.width = pct + '%';
-    document.getElementById('progress-pill').textContent = 'Step ' + current + ' of 8';
+    document.getElementById('progress-pill').textContent = 'Step ' + (current + 1) + ' of 9';
     window.scrollTo({ top: 0, behavior: 'smooth' });
     updateMainNav();
   }
@@ -769,10 +845,10 @@
   });
 
   function navNext() {
-    if (current < 7) goStep(current + 1);
+    if (current < 8) goStep(current + 1);
   }
   function navBack() {
-    if (current > 1) goStep(current - 1);
+    if (current > 0) goStep(current - 1);
   }
 
   function pick(qNum, el, val) {
@@ -808,7 +884,7 @@
         document.getElementById('score-message').textContent = 'Perfect score. You are fully prepared to run this campaign. Click "Mark as complete" to notify your manager.';
       } else if (score >= 6) {
         document.getElementById('score-title').textContent = 'Almost there';
-        document.getElementById('score-message').textContent = 'You scored ' + score + ' out of 8. Review the modules and retake the quiz to achieve a perfect score before the campaign launches.';
+        document.getElementById('score-message').textContent = 'You scored ' + score + ' out of 8. Review the modules and retake the quiz to achieve a perfect score before the campaign launches.[...]';
       } else {
         document.getElementById('score-title').textContent = 'Please review and retry';
         document.getElementById('score-message').textContent = 'You scored ' + score + ' out of 8. Go back through the training modules carefully and try the quiz again.';
@@ -839,7 +915,7 @@
     nav.className = 'nav-row';
     var id = parseInt(s.id.replace('step-',''));
     if (id === 7 || id === 8) return;
-    if (id > 1) {
+    if (id > 0) {
       var back = document.createElement('button');
       back.className = 'btn';
       back.textContent = 'Back';
@@ -848,13 +924,13 @@
     }
     var next = document.createElement('button');
     next.className = 'btn btn-primary';
-    next.textContent = id === 1 ? 'Start training' : id === 6 ? 'Take the quiz' : 'Next';
+    next.textContent = id === 0 ? 'Continue' : id === 1 ? 'Start training' : id === 6 ? 'Take the quiz' : 'Next';
     next.onclick = function() { goStep(id + 1); };
     nav.appendChild(next);
-    if (id > 1 && id < 7) {
+    if (id > 0 && id < 7) {
       var lbl = document.createElement('span');
       lbl.className = 'step-label';
-      lbl.textContent = 'Module ' + (id-1) + ' of 5';
+      lbl.textContent = 'Module ' + id + ' of 5';
       nav.appendChild(lbl);
     }
     s.appendChild(nav);
